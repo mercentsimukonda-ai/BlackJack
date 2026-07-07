@@ -5,9 +5,22 @@
 # Class for the users account to withdraw and deposit money 
 # credit to @khushipillay for the bank account class and function from Medium: My First Python Project: Building a Simple Banking System 
 class HouseAccount:
-    def __init__(self, balance=0) :
-        self.__balance = balance # private attribute so user can't change the balance 
+    def __init__(self, balance=0):
+        self.__balance = balance # private attribute so user can't change the balance
+        
+    def deposit(self, amount):
+        if 
 
+        # simple deposit implementation: only allow positive amounts
+        try:
+            amt = float(amount)
+        except Exception:
+            return False
+
+        if amt > 0:
+            self.__balance += amt
+            return True
+        return False
 
 
 # show user a random set of cards for the dealer but one card is censored and total number is hidden 
@@ -57,19 +70,19 @@ def main_menu():
 
 # Menu runs on a while loop
     while True:
-        choice = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ') # Ask the user how much they want to bet 
-        choice = choice.lower() # users characters are converetd to lowercase when entered 
+        amount = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ') # Ask the user how much they want to bet 
+        amount = amount.lower() # users characters are converetd to lowercase when entered 
 
-        if choice >= '5000': # subtract balance based off bet
+        if amount >= '5000': # subtract balance based off bet
             #
             break
-        elif choice == '2':
+        elif amount == '2':
             #
             break
-        elif choice =='3':
+        elif amount =='3':
             #
             break
-        elif choice == 'q':
+        elif amount == 'q':
             print('Goodbye!')
             break  # menu will keep running until a number from 0 to 3 is entered  
         else:
