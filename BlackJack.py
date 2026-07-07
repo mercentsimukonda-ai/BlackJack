@@ -7,9 +7,25 @@
 class HouseAccount:
     def __init__(self, balance=0):
         self.__balance = balance # private attribute so user can't change the balance
-        
+
+    # function for money to be deposited into the balance     
     def deposit(self, amount):
-        if 
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited {amount}. New Balance = {self.__balance}")
+        else:
+            print("Deposit amount must be positive.") # error expection if deposit less than 0
+    
+    # function for money to be withdrawn  from the balance 
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount 
+            print(f"Withdrew {amount}. New Balance = {self.__balance}")
+        elif amount > self.__balance: 
+            print("Insufficient balance.")
+        else:
+            print("Withdrawl amount must be positive.")
+
 
         # simple deposit implementation: only allow positive amounts
         try:
@@ -73,7 +89,7 @@ def main_menu():
         amount = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ') # Ask the user how much they want to bet 
         amount = amount.lower() # users characters are converetd to lowercase when entered 
 
-        if amount >= '5000': # subtract balance based off bet
+        if amount <= '5000': # subtract balance based off bet
             #
             break
         elif amount == '2':
