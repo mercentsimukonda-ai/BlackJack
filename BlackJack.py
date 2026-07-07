@@ -2,9 +2,13 @@
 # Author: Mercent Simukonda 
 # License: No license 
 
-# Tell the user how much money they are starting with 
-# Ask the user how much they want to bet 
-# based of how much they bet substract this from the current balance 
+# Class for the users account to withdraw and deposit money 
+# credit to @khushipillay for the bank account class and function from Medium: My First Python Project: Building a Simple Banking System 
+class HouseAccount:
+    def __init__(self, balance=0) :
+        self.__balance = balance # private attribute so user can't change the balance 
+
+
 
 # show user a random set of cards for the dealer but one card is censored and total number is hidden 
 # show user a random set of cards and the total number they currently have 
@@ -30,6 +34,11 @@
 
 # give the option for the user to repeat the while loop again or they can exit 
 
+# Class for the users account to withdraw and deposit money 
+# credit to @khushipillay for the bank account class and function from Medium: My First Python Project: Building a Simple Banking System 
+
+
+
 # Welcome message and instructions for the player 
 def main_menu():
     print('''Hi welcome to the London House! Let me explain the rules.
@@ -48,10 +57,10 @@ def main_menu():
 
 # Menu runs on a while loop
     while True:
-        choice = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ')
+        choice = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ') # Ask the user how much they want to bet 
         choice = choice.lower() # users characters are converetd to lowercase when entered 
 
-        if choice >= '5000':
+        if choice >= '5000': # subtract balance based off bet
             #
             break
         elif choice == '2':
