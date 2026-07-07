@@ -2,8 +2,6 @@
 # Author: Mercent Simukonda 
 # License: No license 
 
-# lay out the rules 
-
 # Tell the user how much money they are starting with 
 # Ask the user how much they want to bet 
 # based of how much they bet substract this from the current balance 
@@ -30,4 +28,43 @@
 # if the dealers card is more than or equal to 17 but less than or equal to 21 and its the same with the user as well The highest card holder wins 
 # if the dealers card is more than or equal to 17 but less than or equal to 21 and its the same with the user but they have the same score the bet is returned to the balance of the user
 
-#give the option for the user to repeat the while loop again or they can exit 
+# give the option for the user to repeat the while loop again or they can exit 
+
+# Welcome message and instructions for the player 
+def main_menu():
+    print('''Hi welcome to the London House! Let me explain the rules.
+          
+    Rules:
+        Try to get as close to 21 without going over.
+        Kings, Queens, and Jacks are worth 10 points.
+        Aces are worth 1 or 11 points.
+        Cards 2 through 10 are worth their face value.
+        (H)it to take another card.
+        (S)tand to stop taking cards.
+        On your first play, you can (D)ouble down to increase your bet
+        but must hit exactly one more time before standing.
+        In case of a tie, the bet is returned to the player.
+        The dealer stops hitting at 17.''')
+
+# Menu runs on a while loop
+    while True:
+        choice = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ')
+        choice = choice.lower() # users characters are converetd to lowercase when entered 
+
+        if choice >= '5000':
+            #
+            break
+        elif choice == '2':
+            #
+            break
+        elif choice =='3':
+            #
+            break
+        elif choice == 'q':
+            print('Goodbye!')
+            break  # menu will keep running until a number from 0 to 3 is entered  
+        else:
+            print('Invalid choice. Please try again.''')
+
+if __name__ == '__main__': # name main idiom allows the main_menu() function to be executed when running the script 
+    main_menu()
