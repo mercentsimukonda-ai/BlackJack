@@ -23,15 +23,6 @@ class HouseAccount:
             print("Insufficient balance.")
         else:
             print("Withdrawl amount must be positive.")
-
-
-        # simple deposit implementation: only allow positive amounts
-        try:
-            amt = float(amount)
-        except Exception:
-            return False
-
-        if amt > 0:
-            self.__balance += amt
-            return True
-        return False
+    
+    def check_balance(self):
+        print(f"House Account Balance = {self.__balance}")
