@@ -1,7 +1,7 @@
 
 
-class HouseAccount:
-    amount = 0
+class BlackJack:
+    amount = 5000
 
     def __init__(self, balance=0):
         self.__balance = balance # private attribute so user can't change the balance

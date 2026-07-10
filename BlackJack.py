@@ -2,42 +2,6 @@
 # Author: Mercent Simukonda 
 # License: No license 
 
-# Class for the users account to withdraw and deposit money 
-# credit to @khushipillay for the bank account class and function from Medium: My First Python Project: Building a Simple Banking System 
-class HouseAccount:
-    def __init__(self, balance=0):
-        self.__balance = balance # private attribute so user can't change the balance
-
-    # function for money to be deposited into the balance     
-    def deposit(self, amount):
-        if amount > 0:
-            self.__balance += amount
-            print(f"Deposited {amount}. New Balance = {self.__balance}")
-        else:
-            print("Deposit amount must be positive.") # error expection if deposit less than 0
-    
-    # function for money to be withdrawn  from the balance 
-    def withdraw(self, amount):
-        if amount > 0 and amount <= self.__balance:
-            self.__balance -= amount 
-            print(f"Withdrew {amount}. New Balance = {self.__balance}")
-        elif amount > self.__balance: 
-            print("Insufficient balance.")
-        else:
-            print("Withdrawl amount must be positive.")
-
-
-        # simple deposit implementation: only allow positive amounts
-        try:
-            amt = float(amount)
-        except Exception:
-            return False
-
-        if amt > 0:
-            self.__balance += amt
-            return True
-        return False
-
 
 # show user a random set of cards for the dealer but one card is censored and total number is hidden 
 # show user a random set of cards and the total number they currently have 
@@ -65,11 +29,26 @@ class HouseAccount:
 
 # Class for the users account to withdraw and deposit money 
 # credit to @khushipillay for the bank account class and function from Medium: My First Python Project: Building a Simple Banking System 
+class BlackJack:
+    def __init__(self, balance=5000):
+        self.__balance = balance # private attribute so user can't change the balance
+
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount 
+            print(f"Withdrew {amount}. New Balance = {self.__balance}")
+        elif amount > self.__balance: 
+            print("Insufficient balance.")
+        else:
+            print("Withdrawl amount must be positive.")
+            
+            
+game = BlackJack()
 
 
 
 # Welcome message and instructions for the player 
-def main_menu():
+def main_menu(game):
     print('''Hi welcome to the London House! Let me explain the rules.
           
     Rules:
@@ -83,26 +62,33 @@ def main_menu():
         but must hit exactly one more time before standing.
         In case of a tie, the bet is returned to the player.
         The dealer stops hitting at 17.''')
+    
+    money = 5000
 
 # Menu runs on a while loop
     while True:
-        amount = input('How much do you want to bet? :\n Current balance is: 5000 \n 1-5,000 or (Q)uit ') # Ask the user how much they want to bet 
-        amount = amount.lower() # users characters are converetd to lowercase when entered 
+        print()
+        game.withdraw(int(input(f"How much do you want to bet? : \n Current balance is: {game.balance}"))) 
+        print()
+        game.balance()
 
-        if amount <= '5000': # subtract balance based off bet
+
+
+        #if amount <= '5000': # subtract balance based off bet
+            #print()
+            #__balance.withdraw
+            
+        #elif amount == '2':
             #
-            break
-        elif amount == '2':
+            #break
+       # elif amount =='3':
             #
-            break
-        elif amount =='3':
-            #
-            break
-        elif amount == 'q':
-            print('Goodbye!')
-            break  # menu will keep running until a number from 0 to 3 is entered  
-        else:
-            print('Invalid choice. Please try again.''')
+           # break
+       # elif amount == 'q':
+          #  print('Goodbye!')
+           # break  # menu will keep running until a number from 0 to 3 is entered  
+       # else:
+         #   print('Invalid choice. Please try again.''')
 
 if __name__ == '__main__': # name main idiom allows the main_menu() function to be executed when running the script 
-    main_menu()
+    main_menu(game)
