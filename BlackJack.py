@@ -2,6 +2,21 @@
 # Author: Mercent Simukonda 
 # License: No license 
 
+Suits = ["\u2663", "\u2665", "\u2666", "\u2660"]
+
+Ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+
+class Card(object):
+    def __init__(self, value, suit):
+        self.value = value 
+        self.suit = suit 
+        
+    def __repr__(self):
+        return (self.value, self.suit )
+
+Suits = ["\u2663", "\u2665", "\u2666", "\u2660"]
+
+Ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 # show user a random set of cards for the dealer but one card is censored and total number is hidden 
 # show user a random set of cards and the total number they currently have 
