@@ -73,7 +73,7 @@ def main_menu(game):
         print()
         game.withdraw(int(input(f"How much do you want to bet? : \n Current balance is: {game.balance}"))) 
         print()
-        game._balance()
+        game.get_balance()
 
 
 
