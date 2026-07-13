@@ -41,6 +41,9 @@ class BlackJack:
             print("Insufficient balance.")
         else:
             print("Withdrawl amount must be positive.")
+    
+    def get_balance(self):
+        return self.__balance
             
             
 game = BlackJack()
@@ -70,7 +73,7 @@ def main_menu(game):
         print()
         game.withdraw(int(input(f"How much do you want to bet? : \n Current balance is: {game.balance}"))) 
         print()
-        game.balance()
+        game._balance()
 
 
 
