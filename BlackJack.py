@@ -2,21 +2,21 @@
 # Author: Mercent Simukonda 
 # License: No license 
 
-Suits = ["\u2663", "\u2665", "\u2666", "\u2660"]
+SUITS = ["\u2663", "\u2665", "\u2666", "\u2660"]
 
-Ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 class Card(object):
     def __init__(self, value, suit):
         self.value = value 
         self.suit = suit 
         
-    def __repr__(self):
-        return (self.value, self.suit )
+    def __str__(self):
+        return f"{self.value} of {self.suit}"
 
-Suits = ["\u2663", "\u2665", "\u2666", "\u2660"]
 
-Ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+deck = [Card(value, suit) for value in RANKS for suit in SUITS]
+
 
 # show user a random set of cards for the dealer but one card is censored and total number is hidden 
 # show user a random set of cards and the total number they currently have 
@@ -85,11 +85,13 @@ def main_menu(game):
 
 # Menu runs on a while loop
     while True:
+        print(deck)
         print()
         bet = int(input(f"How much do you want to bet? : \n Current balance is: £{game.get_balance()}\n"))
         game.withdraw(bet)
 
         print(f"Balance remaining: £{game.get_balance()}")
+        print(deck)
 
 
 
