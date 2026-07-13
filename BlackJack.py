@@ -34,13 +34,13 @@ class BlackJack:
         self.__balance = balance # private attribute so user can't change the balance
 
     def withdraw(self, amount):
-        if amount > 0 and amount <= self.__balance:
+        if amount > 50 and amount <= self.__balance:
             self.__balance -= amount 
-            print(f"Withdrew {amount}. New Balance = {self.__balance}")
+            print(f"Withdrew {amount}. New Balance = £{self.__balance}")
         elif amount > self.__balance: 
             print("Insufficient balance.")
         else:
-            print("Withdrawl amount must be positive.")
+            print("Withdrawl amount must be more than £50.")
     
     def get_balance(self):
         return self.__balance
@@ -71,10 +71,10 @@ def main_menu(game):
 # Menu runs on a while loop
     while True:
         print()
-        bet = int(input(f"How much do you want to bet? : \n Current balance is: {game.get_balance()}\n"))
+        bet = int(input(f"How much do you want to bet? : \n Current balance is: £{game.get_balance()}\n"))
         game.withdraw(bet)
 
-        print(f"Balance remaining: {game.get_balance()}")
+        print(f"Balance remaining: £{game.get_balance()}")
 
 
 
