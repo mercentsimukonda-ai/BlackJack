@@ -66,14 +66,15 @@ def main_menu(game):
         In case of a tie, the bet is returned to the player.
         The dealer stops hitting at 17.''')
     
-    money = 5000
+    
 
 # Menu runs on a while loop
     while True:
         print()
-        game.withdraw(int(input(f"How much do you want to bet? : \n Current balance is: {game.balance}"))) 
-        print()
-        game.get_balance()
+        bet = int(input(f"How much do you want to bet? : \n Current balance is: {game.get_balance()}\n"))
+        game.withdraw(bet)
+
+        print(f"Balance remaining: {game.get_balance()}")
 
 
 
@@ -94,4 +95,5 @@ def main_menu(game):
          #   print('Invalid choice. Please try again.''')
 
 if __name__ == '__main__': # name main idiom allows the main_menu() function to be executed when running the script 
+    game = BlackJack()
     main_menu(game)
